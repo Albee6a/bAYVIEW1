@@ -1,37 +1,48 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="movement_forward" id="282" x="-492" y="-516">
-    <next>
-      <block type="robot_delay" id="293" inline="true">
-        <value name="DELAY">
-          <block type="math_number" id="300">
-            <field name="NUM">1234</field>
+  <block type="controls_whileUntil" id="135" inline="false" x="-420" y="-494">
+    <field name="MODE">UNTIL</field>
+    <value name="NUMBER">
+      <block type="sensor_button" id="210">
+        <field name="OBJECT">ENTER</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="controls_if" id="232" inline="false">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="360" inline="true">
+            <field name="OP">LT</field>
+            <value name="A">
+              <block type="sensor_object" id="313">
+                <field name="OBJECT">LEFTFRONT</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="405">
+                <field name="NUM">75</field>
+              </block>
+            </value>
           </block>
         </value>
+        <statement name="DO0">
+          <block type="movement_right" id="242"></block>
+        </statement>
+        <statement name="ELSE">
+          <block type="movement_forward" id="415"></block>
+        </statement>
         <next>
-          <block type="movement_reverse" id="406">
-            <next>
-              <block type="movement_left" id="426">
-                <next>
-                  <block type="movement_right" id="436">
-                    <next>
-                      <block type="robot_delay" id="439" inline="true">
-                        <value name="DELAY">
-                          <block type="math_number" id="446">
-                            <field name="NUM">123</field>
-                          </block>
-                        </value>
-                        <next>
-                          <block type="movement_stop" id="456"></block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </next>
+          <block type="robot_delay" id="418" inline="true">
+            <value name="DELAY">
+              <block type="math_number" id="448">
+                <field name="NUM">200</field>
               </block>
-            </next>
+            </value>
           </block>
         </next>
       </block>
+    </statement>
+    <next>
+      <block type="movement_stop" id="459"></block>
     </next>
   </block>
 </xml>
